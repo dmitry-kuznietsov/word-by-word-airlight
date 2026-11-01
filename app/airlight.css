@@ -1,0 +1,252 @@
+/* Airlight: an alternate editorial skin. The reading and upload logic is shared. */
+body{background:#fcfcfd}
+main[data-palette]{
+  overflow:clip;
+  --ink:#20242e;
+  --paper:#fcfcfd;
+  --white:#fff;
+  --cream:#f7f8fc;
+  --acid:#e4ebf7;
+  --forest:#3b6fd2;
+  --deep:#f7f8fc;
+  --accent:#e4ebf7;
+  --accent-deep:#3b6fd2;
+  --accent-pale:#f0f4fb;
+  --accent-ambient:#f8fafd;
+  --accent-border:#c7d5ea;
+  --line:#dfe2e9;
+  --muted:#626a79;
+  --cobalt:#3b6fd2;
+  --coral:#c77d8d;
+  --coral-ink:#a5596b;
+  background:var(--paper);
+  color:var(--ink);
+}
+main[data-palette] *{font-family:Arial,Helvetica,sans-serif!important}
+main[data-palette] :is(h1,h2,h3){font-weight:700;letter-spacing:-.075em}
+main[data-palette] :is(.hero h1 em,.upload-band h2 em,.final-cta h2 em){font-style:italic;font-weight:600}
+main[data-palette] :is(.kicker,.eyebrow,.chapter){font-size:10px;letter-spacing:.18em}
+main[data-palette] .kicker:before{content:"";display:inline-block;width:24px;height:1px;background:currentColor;margin-right:12px;vertical-align:middle;opacity:.55}
+main[data-palette] :is(.button,.button-small,.level-filters button){border-radius:999px}
+main[data-palette] .button{background:transparent;border:1px solid currentColor;box-shadow:none}
+main[data-palette] .button:hover{transform:translateY(-2px);background:transparent;box-shadow:none}
+main[data-palette] :is(.button,.text-button,.level-filters button):focus-visible{outline-color:currentColor;outline-offset:3px}
+
+/* A quiet frame instead of filled bands. */
+main[data-palette] .site-header{position:sticky;top:0;z-index:80;height:76px;max-width:none;padding:0 clamp(24px,5vw,80px);border-bottom:1px solid var(--line);background:#fcfcfdf2;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:height .26s ease,box-shadow .26s ease}
+main[data-palette] .site-header.is-compact{height:54px;box-shadow:0 7px 20px #2836650b}
+main[data-palette] .site-header .brand{font-size:22px;letter-spacing:-.085em;transition:font-size .26s ease}
+main[data-palette] .site-header.is-compact .brand{font-size:19px}
+main[data-palette] .site-header nav{gap:30px}
+main[data-palette] .site-header nav a{font-size:12px;font-weight:600}
+main[data-palette] .site-header nav a+a:before{content:"";display:inline-block;width:1px;height:11px;background:var(--line);margin:0 29px 0 -1px;vertical-align:-1px}
+main[data-palette] .site-header>.header-cta{background:transparent;border:1px solid var(--coral);color:var(--coral-ink);min-height:40px;transition:min-height .26s ease}
+main[data-palette] .site-header.is-compact>.header-cta{min-height:34px}
+main[data-palette] .site-header>.header-cta:hover{background:transparent}
+main[data-palette] section[id]:not(#top){scroll-margin-top:70px}
+
+/* The hero relies on type, a single image and fine rules. */
+main[data-palette] .hero{max-width:none;min-height:660px;grid-template-columns:54% 46%;padding:0 clamp(24px,5vw,80px) 40px;background:var(--paper);border-bottom:1px solid var(--line)}
+main[data-palette] .hero-copy{padding:80px 4vw 42px 0}
+main[data-palette] .hero .eyebrow{color:var(--cobalt)}
+main[data-palette] .hero .eyebrow:after{width:70px;opacity:.45}
+main[data-palette] .hero h1{font-size:clamp(66px,6.7vw,104px);line-height:.94;letter-spacing:-.095em;margin:29px 0 26px}
+main[data-palette] .hero h1 em{font-size:.78em;line-height:1.02;padding:3px 0 5px;color:var(--accent-deep)}
+main[data-palette] .hero-copy>p{font-size:16px;line-height:1.62;max-width:500px;color:var(--muted);margin-bottom:26px}
+main[data-palette] .hero .button-primary{background:transparent;border:1px solid var(--cobalt);color:var(--cobalt);box-shadow:none;min-height:50px}
+main[data-palette] .hero .text-button{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 20px;border:1px solid var(--line);border-radius:999px;color:var(--ink)}
+main[data-palette] .hero-stats{margin-top:42px;padding-top:15px;border-color:var(--line);gap:50px}
+main[data-palette] .hero-stats strong{font-size:27px;font-weight:600}
+main[data-palette] .hero-visual{height:540px;margin-top:36px;border-left:1px solid var(--line);overflow:visible}
+main[data-palette] .hero-orb,main[data-palette] .hero-ghost{display:none}
+main[data-palette] .hero-ring{left:10%;top:35px;width:450px;height:450px;border-color:var(--line);opacity:.85}
+main[data-palette] .hero-book{top:10px;right:-4%;width:min(40vw,565px);filter:drop-shadow(0 22px 24px #28366524)}
+main[data-palette] .hero .reader-preview{left:5%;bottom:6px;width:310px;min-height:180px;background:#fffc;border:1px solid var(--line);box-shadow:0 16px 38px #2836651a;backdrop-filter:blur(14px);border-radius:18px}
+main[data-palette] .hero .preview-bar{margin:17px 20px 0;border-color:var(--line)}
+main[data-palette] .hero .preview-page{padding:0 20px 20px}
+main[data-palette] .hero .preview-page h2{font-size:32px;margin:19px 0 12px}
+main[data-palette] .hero .preview-page p{font-size:14px}
+main[data-palette] .hero .translation-pop{right:-1%;bottom:22px;background:var(--white);border:1px solid var(--line);box-shadow:0 10px 24px #28366516;padding:11px 15px;border-radius:13px}
+main[data-palette] .hero .translation-pop strong{font-size:16px}
+main[data-palette] .hero-footline{left:clamp(24px,5vw,80px);right:clamp(24px,5vw,80px);bottom:12px;border-color:var(--line)}
+main[data-palette] .ticker{height:48px;background:var(--paper);border-top:0;border-bottom:1px solid var(--line);color:var(--muted)}
+main[data-palette] .ticker i{font-size:11px;color:var(--coral)}
+
+/* Section headings and hairline dividers carry the rhythm. */
+main[data-palette] .section{padding:50px clamp(24px,5vw,80px)}
+main[data-palette] .section-heading{margin-bottom:30px;padding-bottom:24px;border-color:var(--line)}
+main[data-palette] :is(.section-heading h2,.reader-info h2,.cards-copy h2,.final-cta h2){font-size:clamp(42px,4.5vw,68px);line-height:1.03;margin-top:14px}
+main[data-palette] .section-heading>p{font-size:14px;max-width:390px;line-height:1.6}
+main[data-palette] .how{border-bottom:1px solid var(--line)}
+main[data-palette] :is(.how,.library,.reader-section,.cards-section,.upload-band,.final-cta){position:relative}
+main[data-palette] .how{--section-accent:var(--coral);--section-accent-text:var(--coral-ink);background:var(--paper)}
+main[data-palette] .library{--section-accent:var(--cobalt)}
+main[data-palette] .reader-section{--section-accent:var(--cobalt)}
+main[data-palette] .cards-section{--section-accent:var(--coral);--section-accent-text:var(--coral-ink)}
+main[data-palette] .upload-band{--section-accent:var(--coral);--section-accent-text:var(--coral-ink)}
+main[data-palette] .final-cta{--section-accent:var(--cobalt)}
+main[data-palette] :is(.how,.library,.reader-section,.cards-section,.upload-band,.final-cta):after{content:"";position:absolute;top:0;left:clamp(24px,5vw,80px);width:58px;height:2px;background:var(--section-accent);pointer-events:none}
+main[data-palette] :is(.how,.library,.reader-section,.cards-section,.upload-band,.final-cta) .kicker{color:var(--section-accent-text,var(--section-accent))}
+main[data-palette] :is(.how,.library,.reader-section,.cards-section,.upload-band,.final-cta) .kicker:before{opacity:.8}
+main[data-palette] .steps{gap:0;border-top:0;border-bottom:1px solid var(--line)}
+main[data-palette] .steps article,main[data-palette] .steps article+article{min-height:200px;padding:23px 25px 28px;background:transparent;border:0;border-right:1px solid var(--line);border-radius:0}
+main[data-palette] .steps article:first-child{padding-left:0}
+main[data-palette] .steps article:last-child{border-right:0}
+main[data-palette] .steps article:before{width:20px;top:24px;right:24px}
+main[data-palette] .step-icon{font-size:30px;margin:auto 0 18px;color:var(--accent-deep)}
+main[data-palette] .steps article:nth-child(1) .step-icon{color:var(--coral)}
+main[data-palette] .steps article:nth-child(2) .step-icon{color:var(--cobalt)}
+main[data-palette] .steps article:nth-child(3) .step-icon{color:var(--coral)}
+main[data-palette] .steps article:before{background:var(--section-accent);opacity:.65}
+main[data-palette] .steps h3{font-size:24px}
+main[data-palette] .steps p{font-size:13px;line-height:1.55}
+
+/* Story tiles share one surface, with color kept in the illustration only. */
+main[data-palette] .library{border-bottom:1px solid var(--line)}
+main[data-palette] .level-filters{margin:-8px 0 26px;gap:7px}
+main[data-palette] .level-filters button{min-width:58px;padding:8px 13px;border-color:var(--line)}
+main[data-palette] .level-filters button:is(.active,:hover){background:transparent;color:var(--coral-ink);border-color:var(--coral)}
+main[data-palette] .book-grid{gap:12px}
+main[data-palette] .book-card{background:var(--white);border:1px solid var(--line);box-shadow:none;border-radius:16px;overflow:hidden}
+main[data-palette] .book-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px #28366518}
+main[data-palette] .book-art{height:174px;margin:7px;border-radius:10px;background:#f6f7fa!important;border:1px solid var(--line);color:var(--accent-deep)!important}
+main[data-palette] .book-card{--tile-accent:var(--cobalt);--tile-surface:#f6f7fa}
+main[data-palette] .book-card.yellow{--tile-accent:var(--coral)}
+main[data-palette] .book-card.lavender{--tile-accent:var(--cobalt)}
+main[data-palette] .book-card.coral{--tile-accent:var(--coral)}
+main[data-palette] .book-card.sand{--tile-accent:var(--coral)}
+main[data-palette] .book-card.forest{--tile-accent:var(--cobalt)}
+main[data-palette] .book-card.graphite{--tile-accent:var(--coral)}
+main[data-palette] .book-card .book-art{background:var(--tile-surface)!important;color:var(--tile-accent)!important;border-color:var(--line)}
+main[data-palette] .book-art:before{content:"";position:absolute;top:18px;right:20px;width:26px;height:2px;background:currentColor;opacity:.6}
+main[data-palette] .book-art>span{color:var(--muted);font-size:9px}
+main[data-palette] .book-art:after{width:160px;height:160px;right:-45px;bottom:-78px;opacity:.28}
+main[data-palette] .story-icon{width:100px;height:100px;opacity:.92}
+main[data-palette] .book-meta{margin:0 17px;padding:14px 0 10px;border-color:var(--line)}
+main[data-palette] .book-meta h3{font-size:22px;margin-top:7px}
+main[data-palette] .book-meta b{background:var(--accent-pale);color:var(--accent-deep)}
+main[data-palette] .book-card .book-meta b{background:#f0f2f7;color:var(--tile-accent)}
+main[data-palette] .book-card:is(.yellow,.coral,.sand,.graphite) .book-meta b{color:var(--coral-ink)}
+main[data-palette] .book-open>small{padding:0 17px 17px;color:var(--muted)}
+
+/* Reading stays visually central without a colored section background. */
+main[data-palette] .reader-section{background:var(--paper);border-top:0;border-bottom:1px solid var(--line);padding:56px clamp(24px,5vw,80px)}
+main[data-palette] .reader-info{top:84px}
+main[data-palette] .reader-info>p{font-size:14px;line-height:1.62;margin:22px 0}
+main[data-palette] .mini-stat{margin-top:27px;padding-top:17px;border-color:var(--line)}
+main[data-palette] .reader-demo{background:var(--white);border:1px solid var(--line);box-shadow:none;border-radius:18px}
+main[data-palette] .reader-demo-head{border-color:var(--line)}
+main[data-palette] .reader-demo-head div span{background:#eaf1fb;color:var(--cobalt)}
+main[data-palette] .progress{background:#e4e6ef}
+main[data-palette] .progress i{background:var(--cobalt)}
+main[data-palette] .reader-text{padding:36px clamp(28px,4vw,60px) 44px;max-height:600px}
+main[data-palette] .reader-text p{font-size:18px;line-height:1.74}
+main[data-palette] .reader-text .translatable{padding-inline:1px;border-radius:5px;transition:background-color .3s cubic-bezier(.2,.7,.2,1),color .3s ease,box-shadow .3s ease}
+main[data-palette] .reader-text .translatable:hover,main[data-palette] .reader-text .translatable:focus-visible{background:#d7e9fa;color:#26384b;box-shadow:-4px 0 0 #d7e9fa,4px 0 0 #d7e9fa}
+main[data-palette] .reader-text .translatable.selected{background:#f2c5cf;color:#20242e;box-shadow:-4px 0 0 #f2c5cf,4px 0 0 #f2c5cf}
+main[data-palette] .definition{border:1px solid var(--line);box-shadow:0 14px 30px #3333}
+
+main[data-palette] .cards-section{background:var(--paper);border-top:0;border-bottom:1px solid var(--line);padding:56px clamp(24px,5vw,80px)}
+main[data-palette] .card-visual{height:390px}
+main[data-palette] .flashcard{width:278px;height:338px;border:1px solid var(--line);box-shadow:0 10px 26px #28366518;border-radius:15px}
+main[data-palette] .back-card{background:#f0f4fa;color:var(--cobalt)}
+main[data-palette] .front-card{background:var(--white);color:var(--ink)}
+main[data-palette] .front-card{border-top:3px solid var(--coral)}
+main[data-palette] .front-card button{padding:7px 16px;border:1px solid var(--coral);border-radius:999px;background:transparent;color:var(--coral-ink)}
+main[data-palette] .front-card b{font-size:58px}
+main[data-palette] .cards-copy .kicker{color:var(--coral-ink)}
+main[data-palette] .cards-copy>p{color:var(--muted);font-size:14px;line-height:1.62}
+main[data-palette] .cards-copy .button{background:transparent;border:1px solid var(--coral);color:var(--coral-ink)}
+
+main[data-palette] .upload-band{background:var(--paper);border-top:0;border-bottom:1px solid var(--line);padding:54px clamp(24px,5vw,80px);gap:7%}
+main[data-palette] .upload-band h2{font-size:clamp(42px,4.5vw,68px);line-height:1.04;margin:14px 0 20px}
+main[data-palette] .upload-band h2 em{color:var(--coral)}
+main[data-palette] .upload-band p{font-size:14px;line-height:1.62}
+main[data-palette] .upload-band .button{background:transparent;border:1px solid var(--coral);color:var(--coral-ink)}
+main[data-palette] .drop-preview{background:transparent;border:1px dashed #cbd2e2;box-shadow:none;min-height:250px;border-radius:18px}
+main[data-palette] .drop-preview:hover{background:transparent;border-color:var(--coral)}
+main[data-palette] .drop-preview .upload-arrow{background:transparent;border:1px solid var(--coral);color:var(--coral);width:50px;height:50px;font-size:24px;margin-bottom:8px}
+main[data-palette] .drop-preview strong{font-size:22px}
+main[data-palette] .final-cta{background:var(--paper);border-top:0;border-bottom:1px solid var(--line);padding:76px 20px 82px}
+main[data-palette] .final-cta:before{width:1px;height:38px;left:50%;top:18px;transform:none;border:0;background:var(--line);border-radius:0}
+main[data-palette] .final-cta h2{margin:19px 0 20px}
+main[data-palette] .final-cta h2 em{color:var(--accent-deep)}
+main[data-palette] .final-cta p{color:var(--muted)}
+main[data-palette] .final-cta .button{background:transparent;border:1px solid var(--cobalt);color:var(--cobalt)}
+main[data-palette] .file-cover{background:var(--cobalt);color:var(--white)}
+main[data-palette] .modal-backdrop{background:#20242e8c}
+main[data-palette] .modal{background:var(--white);border:1px solid var(--line);box-shadow:0 28px 72px #20242e30}
+main[data-palette] .dropzone{background:transparent;border-color:var(--coral)}
+main[data-palette] .dropzone>span{background:transparent;border:1px solid var(--coral);color:var(--coral)}
+main[data-palette] .uploaded-grid button{padding:8px 14px;border:1px solid var(--cobalt);border-radius:999px;background:transparent;color:var(--cobalt)}
+main[data-palette] footer{padding:32px clamp(24px,5vw,80px);border-top:0}
+
+@media(max-width:1100px){
+  main[data-palette] .site-header nav{gap:15px}
+  main[data-palette] .site-header nav a+a:before{margin:0 15px 0 -1px}
+  main[data-palette] .hero h1{font-size:clamp(62px,7vw,86px)}
+  main[data-palette] .hero-book{width:min(47vw,520px);right:-10%}
+  main[data-palette] .hero .reader-preview{left:-1%;width:280px}
+}
+@media(max-width:900px){
+  main[data-palette] .hero{grid-template-columns:1fr;min-height:0;padding:0 5vw 34px}
+  main[data-palette] .hero-copy{padding:56px 0 0}
+  main[data-palette] .hero h1{font-size:clamp(66px,10vw,92px)}
+  main[data-palette] .hero-visual{height:450px;margin-top:16px;border-left:0;border-top:1px solid var(--line)}
+  main[data-palette] .hero-book{top:0;right:4%;width:min(68vw,540px)}
+  main[data-palette] .hero-ring{left:22%;top:12px;width:420px;height:420px}
+  main[data-palette] .hero .reader-preview{left:8%;bottom:5px}
+  main[data-palette] .hero-footline{left:5vw;right:5vw}
+  main[data-palette] .section,main[data-palette] .reader-section,main[data-palette] .cards-section{padding:48px 5vw}
+  main[data-palette] .steps article:first-child{padding-left:25px}
+  main[data-palette] .steps article,main[data-palette] .steps article+article{min-height:0;border-right:0;border-bottom:1px solid var(--line);padding:20px 25px}
+  main[data-palette] .steps article:last-child{border-bottom:0}
+  main[data-palette] .upload-band{padding:50px 5vw;gap:30px}
+  main[data-palette] .cards-section{gap:5px}
+  main[data-palette] .card-visual{height:360px}
+}
+@media(max-width:600px){
+  main[data-palette] .site-header{height:68px;padding:0 20px;gap:10px}
+  main[data-palette] .site-header.is-compact{height:50px}
+  main[data-palette] .site-header .brand{font-size:19px}
+  main[data-palette] .site-header.is-compact .brand{font-size:17px}
+  main[data-palette] .site-header.is-compact>.header-cta{min-height:32px}
+  main[data-palette] .hero{padding:0 20px 28px}
+  main[data-palette] .hero-copy{padding-top:44px}
+  main[data-palette] .hero h1{font-size:clamp(54px,13.2vw,72px);margin:23px 0 22px}
+  main[data-palette] .hero-copy>p{font-size:14px}
+  main[data-palette] .hero-stats{margin-top:27px}
+  main[data-palette] .hero-visual{height:350px;overflow:hidden}
+  main[data-palette] .hero-book{top:0;right:-13%;width:96vw}
+  main[data-palette] .hero-ring{left:10%;top:14px;width:300px;height:300px}
+  main[data-palette] .hero .reader-preview{left:0;bottom:0;width:220px;min-height:140px}
+  main[data-palette] .hero .preview-bar{margin:12px 13px 0;padding-bottom:8px;font-size:6px}
+  main[data-palette] .hero .preview-page{padding:0 13px 14px}
+  main[data-palette] .hero .preview-page h2{font-size:23px;margin:11px 0 7px}
+  main[data-palette] .hero .preview-page p{font-size:10px}
+  main[data-palette] .hero .translation-pop{right:-2%;bottom:12px;padding:8px 10px}
+  main[data-palette] .hero .translation-pop strong{font-size:13px}
+  main[data-palette] .hero-footline{left:20px;right:20px}
+  main[data-palette] .ticker{height:44px}
+  main[data-palette] .section,main[data-palette] .reader-section,main[data-palette] .cards-section{padding:38px 20px}
+  main[data-palette] .section-heading{margin-bottom:22px;padding-bottom:18px}
+  main[data-palette] :is(.section-heading h2,.reader-info h2,.cards-copy h2,.final-cta h2){font-size:42px}
+  main[data-palette] .steps article,main[data-palette] .steps article+article{padding:18px 0}
+  main[data-palette] .steps article:first-child{padding-left:0}
+  main[data-palette] .steps article:before{right:0}
+  main[data-palette] .book-grid{gap:12px}
+  main[data-palette] .book-art{height:170px}
+  main[data-palette] .reader-text{padding:30px 22px;max-height:560px}
+  main[data-palette] .reader-text p{font-size:17px}
+  main[data-palette] .card-visual{height:320px}
+  main[data-palette] .flashcard{width:260px;height:315px}
+  main[data-palette] .front-card{left:85px}
+  main[data-palette] .upload-band{padding:40px 20px}
+  main[data-palette] .upload-band h2{font-size:42px}
+  main[data-palette] .drop-preview{min-height:220px}
+  main[data-palette] .final-cta{padding:67px 20px 58px}
+  main[data-palette] footer{padding:28px 20px}
+}
+@media(prefers-reduced-motion:reduce){
+  main[data-palette] .reader-text .translatable{transition:none}
+}
